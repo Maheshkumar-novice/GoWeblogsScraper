@@ -1,0 +1,4 @@
+scrapy~=2.11
+pre-commit~=3.8
+ruff~=0.6
+ipython~=8.26.0

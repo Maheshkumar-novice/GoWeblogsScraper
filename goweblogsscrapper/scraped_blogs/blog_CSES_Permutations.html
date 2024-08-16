@@ -1,0 +1,221 @@
+<!doctype html><html lang=en-us><head><meta http-equiv=X-Clacks-Overhead content="GNU Terry Pratchett"><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>CSES Permutations | Weblogs</title>
+<meta name=title content="CSES Permutations"><meta name=description content="Introduction Hello There, In this post let&rsquo;s see how I tackled the Permutations problem from CSES.
+Permutations is the 5th problem from CSES. I stored my solutions here. Let&rsquo;s explore the solutions.
+NOTE: To reduce character count shown in CSES I have used short variable names in the code.
+CSES Profile
+Problem Statement Link
+A permutation of integers 1,2,…,n is called beautiful if there are no adjacent elements whose difference is 1."><meta name=author content><meta name=keywords content="problem-solving,python,cses,"><meta property="og:url" content="https://maheshkumar-novice.github.io/GoWeblogs/blog/cses-permutations/"><meta property="og:site_name" content="Weblogs"><meta property="og:title" content="CSES Permutations"><meta property="og:description" content="Introduction Hello There, In this post let’s see how I tackled the Permutations problem from CSES.
+Permutations is the 5th problem from CSES. I stored my solutions here. Let’s explore the solutions.
+NOTE: To reduce character count shown in CSES I have used short variable names in the code.
+CSES Profile
+Problem Statement Link
+A permutation of integers 1,2,…,n is called beautiful if there are no adjacent elements whose difference is 1."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="blog"><meta property="article:published_time" content="2023-08-26T00:00:00+00:00"><meta property="article:modified_time" content="2023-08-26T00:00:00+00:00"><meta property="article:tag" content="Problem-Solving"><meta property="article:tag" content="Python"><meta property="article:tag" content="Cses"><meta name=twitter:card content="summary"><meta name=twitter:title content="CSES Permutations"><meta name=twitter:description content="Introduction Hello There, In this post let’s see how I tackled the Permutations problem from CSES.
+Permutations is the 5th problem from CSES. I stored my solutions here. Let’s explore the solutions.
+NOTE: To reduce character count shown in CSES I have used short variable names in the code.
+CSES Profile
+Problem Statement Link
+A permutation of integers 1,2,…,n is called beautiful if there are no adjacent elements whose difference is 1."><meta itemprop=name content="CSES Permutations"><meta itemprop=description content="Introduction Hello There, In this post let’s see how I tackled the Permutations problem from CSES.
+Permutations is the 5th problem from CSES. I stored my solutions here. Let’s explore the solutions.
+NOTE: To reduce character count shown in CSES I have used short variable names in the code.
+CSES Profile
+Problem Statement Link
+A permutation of integers 1,2,…,n is called beautiful if there are no adjacent elements whose difference is 1."><meta itemprop=datePublished content="2023-08-26T00:00:00+00:00"><meta itemprop=dateModified content="2023-08-26T00:00:00+00:00"><meta itemprop=wordCount content="1128"><meta itemprop=keywords content="Problem-Solving,Python,Cses"><meta name=referrer content="no-referrer-when-downgrade"><link href=/GoWeblogs/original.min.css rel=stylesheet><link href=/GoWeblogs/syntax.min.css rel=stylesheet></head><body><header><a class=skip-link href=#main-content>Skip to main content</a>
+<a href=/GoWeblogs/ class=title><h1>Weblogs</h1></a><nav><a href=/GoWeblogs/>Home</a>
+<a href=/GoWeblogs/blog/>Blog</a>
+<a href=https://github.com/Maheshkumar-novice/TIL target=_blank>TIL</a>
+<a href=https://github.com/Maheshkumar-novice target=_blank>Github</a>
+<a href=https://maheshkumar-novice.github.io/GoWeblogs/index.xml>RSS</a></nav></header><main id=main-content><h1>CSES Permutations</h1><p class=byline><time datetie=2023-08-26 pubdate>2023-08-26</time></p><content><nav id=TableOfContents><ul><li><a href=#introduction>Introduction</a></li><li><a href=#problem-statement>Problem Statement</a></li><li><a href=#approach-1>Approach #1</a><ul><li><a href=#observations>Observations</a></li><li><a href=#code>Code</a></li></ul></li><li><a href=#approach-2>Approach #2</a><ul><li><a href=#observations-1>Observations</a></li><li><a href=#code-1>Code</a></li></ul></li><li><a href=#approach-35>Approach #3..5</a><ul><li><a href=#observations-2>Observations</a></li><li><a href=#code-2>Code</a></li></ul></li><li><a href=#approach-6-and-their-friends>Approach #6 and their friends</a><ul><li><a href=#observations-3>Observations</a></li><li><a href=#code-3>Code</a></li></ul></li><li><a href=#conclusion>Conclusion</a></li></ul></nav><h1 id=introduction>Introduction</h1><p>Hello There, In this post let&rsquo;s see how I tackled the <code>Permutations</code> problem from <a href=https://cses.fi/problemset/>CSES</a>.</p><p><code>Permutations</code> is the <code>5th</code> problem from <a href=https://cses.fi/problemset/>CSES</a>. I stored my solutions <a href=https://github.com/Maheshkumar-novice/CSES/blob/main/Permutations>here</a>. Let&rsquo;s explore
+the solutions.</p><p>NOTE: To reduce character count shown in CSES I have used short variable names in the code.</p><p><a href=https://cses.fi/user/182121>CSES Profile</a></p><h1 id=problem-statement>Problem Statement</h1><p><a href=https://cses.fi/problemset/task/1070>Link</a></p><p>A permutation of integers 1,2,…,n is called beautiful if there are no adjacent elements whose difference is 1.</p><p>Given n, construct a beautiful permutation if such a permutation exists.</p><h1 id=approach-1>Approach #1</h1><p>We have <code>n</code>. So for the first approach I went on with the brute force method. That is to create all possible permutations
+and find whether it is a solution or not.</p><p>We use the built-in <code>permutations</code> function from the <code>itertools</code>.</p><p>For each of the permutations for <code>[1...n]</code>, we check whether all of the numbers from the permutation didn&rsquo;t contain the difference as <code>1</code> when compared to the adjacent elements.</p><h2 id=observations>Observations</h2><p>Obviously as expected for big permutations the code didn&rsquo;t stand.</p><p>For short permutations it worked. From this I learned that
+there should be some other way to solve this problem. I thought for a little bit and searched the internet for possible ideas.</p><h2 id=code>Code</h2><p><a href=https://github.com/Maheshkumar-novice/CSES/blob/main/Permutations/1.py>Link</a></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=ln> 1</span><span class=cl><span class=n>n</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>())</span>
+</span></span><span class=line><span class=ln> 2</span><span class=cl>
+</span></span><span class=line><span class=ln> 3</span><span class=cl><span class=kn>from</span> <span class=nn>itertools</span> <span class=kn>import</span> <span class=n>permutations</span>
+</span></span><span class=line><span class=ln> 4</span><span class=cl>
+</span></span><span class=line><span class=ln> 5</span><span class=cl><span class=n>perm</span> <span class=o>=</span> <span class=n>permutations</span><span class=p>(</span><span class=nb>list</span><span class=p>(</span><span class=nb>range</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=n>n</span><span class=o>+</span><span class=mi>1</span><span class=p>)))</span>
+</span></span><span class=line><span class=ln> 6</span><span class=cl>
+</span></span><span class=line><span class=ln> 7</span><span class=cl><span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>list</span><span class=p>(</span><span class=n>perm</span><span class=p>):</span>
+</span></span><span class=line><span class=ln> 8</span><span class=cl><span class=n>flag</span> <span class=o>=</span> <span class=kc>False</span>
+</span></span><span class=line><span class=ln> 9</span><span class=cl><span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=mi>0</span><span class=p>,</span> <span class=n>n</span><span class=p>):</span>
+</span></span><span class=line><span class=ln>10</span><span class=cl><span class=n>next_index</span> <span class=o>=</span> <span class=n>j</span> <span class=o>+</span> <span class=mi>1</span> <span class=k>if</span> <span class=n>j</span> <span class=o>!=</span> <span class=n>n</span> <span class=o>-</span><span class=mi>1</span> <span class=k>else</span> <span class=kc>None</span>
+</span></span><span class=line><span class=ln>11</span><span class=cl><span class=n>previous_index</span> <span class=o>=</span> <span class=n>j</span> <span class=o>-</span> <span class=mi>1</span> <span class=k>if</span> <span class=n>j</span> <span class=o>!=</span> <span class=mi>0</span> <span class=k>else</span> <span class=kc>None</span>
+</span></span><span class=line><span class=ln>12</span><span class=cl>
+</span></span><span class=line><span class=ln>13</span><span class=cl>        <span class=n>diff1</span> <span class=o>=</span> <span class=kc>None</span>
+</span></span><span class=line><span class=ln>14</span><span class=cl>        <span class=k>if</span> <span class=n>next_index</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>15</span><span class=cl>            <span class=n>diff1</span> <span class=o>=</span> <span class=nb>abs</span><span class=p>(</span><span class=n>i</span><span class=p>[</span><span class=n>next_index</span><span class=p>]</span> <span class=o>-</span> <span class=n>i</span><span class=p>[</span><span class=n>j</span><span class=p>])</span>
+</span></span><span class=line><span class=ln>16</span><span class=cl>
+</span></span><span class=line><span class=ln>17</span><span class=cl>        <span class=n>diff2</span> <span class=o>=</span> <span class=kc>None</span>
+</span></span><span class=line><span class=ln>18</span><span class=cl>        <span class=k>if</span> <span class=n>previous_index</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>19</span><span class=cl>            <span class=n>diff2</span> <span class=o>=</span> <span class=nb>abs</span><span class=p>(</span><span class=n>i</span><span class=p>[</span><span class=n>previous_index</span><span class=p>]</span> <span class=o>-</span> <span class=n>i</span><span class=p>[</span><span class=n>j</span><span class=p>])</span>
+</span></span><span class=line><span class=ln>20</span><span class=cl>
+</span></span><span class=line><span class=ln>21</span><span class=cl>        <span class=k>if</span> <span class=n>diff1</span> <span class=o>==</span> <span class=mi>1</span> <span class=ow>or</span> <span class=n>diff2</span> <span class=o>==</span> <span class=mi>1</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>22</span><span class=cl>            <span class=n>flag</span> <span class=o>=</span> <span class=kc>True</span>
+</span></span><span class=line><span class=ln>23</span><span class=cl>
+</span></span><span class=line><span class=ln>24</span><span class=cl>        <span class=k>if</span> <span class=n>flag</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>25</span><span class=cl>            <span class=k>break</span>
+</span></span><span class=line><span class=ln>26</span><span class=cl>
+</span></span><span class=line><span class=ln>27</span><span class=cl>    <span class=k>if</span> <span class=ow>not</span> <span class=n>flag</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>28</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39; &#39;</span><span class=o>.</span><span class=n>join</span><span class=p>([</span><span class=nb>str</span><span class=p>(</span><span class=n>k</span><span class=p>)</span> <span class=k>for</span> <span class=n>k</span> <span class=ow>in</span> <span class=n>i</span><span class=p>]))</span>
+</span></span><span class=line><span class=ln>29</span><span class=cl>        <span class=k>break</span>
+</span></span><span class=line><span class=ln>30</span><span class=cl>
+</span></span><span class=line><span class=ln>31</span><span class=cl>    <span class=n>flag</span> <span class=o>=</span> <span class=kc>False</span>
+</span></span><span class=line><span class=ln>32</span><span class=cl>
+</span></span><span class=line><span class=ln>33</span><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;NO SOLUTION&#39;</span><span class=p>)</span></span></span></code></pre></div><h1 id=approach-2>Approach #2</h1><p>In the internet I found <a href=https://japlslounge.com/posts/cses/permutations/1.htm>this</a>.</p><p>From that blog I can formulate a solution for this problem. They are going with approach of the difference between <code>2</code> even or odd
+numbers will always be <code>2</code>.</p><p>So they take all of the even numbers in the first half of the permutation solution and rest will be the odd numbers. This way
+we will always have difference between any <code>2</code> adjacent numbers as more than <code>1</code>.</p><p>For permutations of length <code>2</code> & <code>3</code> there are no solutions to make the difference more than <code>1</code>.</p><h2 id=observations-1>Observations</h2><p>The code this time succeeded. The <a href=https://cses.fi/problemset/>CSES</a> max execution time was <code>~0.59 s</code>. But I was not satisfied with the execution time and I wanted to reduce it. As observed <a href=https://stackoverflow.com/questions/12590058/performance-with-global-variables-vs-local>here</a>, local variables perform better than global variables in <code>python</code>. So I updated the code accordingly that we will see in the next approach after this approach&rsquo;s code.</p><h2 id=code-1>Code</h2><p><a href=https://github.com/Maheshkumar-novice/CSES/blob/main/Permutations/2.py>Link</a></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=ln> 1</span><span class=cl><span class=n>n</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>())</span>
+</span></span><span class=line><span class=ln> 2</span><span class=cl>
+</span></span><span class=line><span class=ln> 3</span><span class=cl><span class=k>if</span> <span class=n>n</span> <span class=ow>in</span> <span class=p>[</span><span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>]:</span>
+</span></span><span class=line><span class=ln> 4</span><span class=cl><span class=nb>print</span><span class=p>(</span><span class=s1>&#39;NO SOLUTION&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln> 5</span><span class=cl><span class=n>exit</span><span class=p>()</span>
+</span></span><span class=line><span class=ln> 6</span><span class=cl>
+</span></span><span class=line><span class=ln> 7</span><span class=cl><span class=n>v</span> <span class=o>=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln> 8</span><span class=cl>
+</span></span><span class=line><span class=ln> 9</span><span class=cl><span class=k>while</span> <span class=n>v</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>10</span><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>v</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>11</span><span class=cl><span class=n>v</span> <span class=o>+=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>12</span><span class=cl>
+</span></span><span class=line><span class=ln>13</span><span class=cl><span class=n>v</span> <span class=o>=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=ln>14</span><span class=cl>
+</span></span><span class=line><span class=ln>15</span><span class=cl><span class=k>while</span> <span class=n>v</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>16</span><span class=cl><span class=nb>print</span><span class=p>(</span><span class=n>v</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>17</span><span class=cl><span class=n>v</span> <span class=o>+=</span> <span class=mi>2</span></span></span></code></pre></div><h1 id=approach-35>Approach #3..5</h1><p>As we have the working solution from <code>Approach #2</code>. Now it&rsquo;s time to optimize.</p><p>In these approaches we converted the <code>global variable approach to local variable</code> approach.</p><p>Then I experimented with possible solutions for permutations for <code>2</code> & <code>3</code> lengths. Experimented with using <code>Set</code>, <code>==</code> & <code>List</code> for the <code>in</code> operation.</p><p>Also I tried to make a function for the inner <code>while</code> loop duplication and try to see how it affects the performance. Couldn&rsquo;t see any noticeable differences.</p><p>These approaches gave <code>~0.52 s</code>. But why stop. Let&rsquo;s optimize further.</p><h2 id=observations-2>Observations</h2><p>These approaches gave a little performance enhancement. I checked other python solution from CSES and found that my usage of <code>print</code> causes my program to slow down. Let&rsquo;s fix this in the next approach.</p><h2 id=code-2>Code</h2><p><a href=https://github.com/Maheshkumar-novice/CSES/blob/main/Permutations/3.py>Link #3</a>
+<a href=https://github.com/Maheshkumar-novice/CSES/blob/main/Permutations/4.py>Link #4</a>
+<a href=https://github.com/Maheshkumar-novice/CSES/blob/main/Permutations/5.py>Link #5</a></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=ln> 1</span><span class=cl>
+</span></span><span class=line><span class=ln> 2</span><span class=cl><span class=c1># 3</span>
+</span></span><span class=line><span class=ln> 3</span><span class=cl>
+</span></span><span class=line><span class=ln> 4</span><span class=cl><span class=k>def</span> <span class=nf>a</span><span class=p>():</span>
+</span></span><span class=line><span class=ln> 5</span><span class=cl><span class=n>n</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>())</span>
+</span></span><span class=line><span class=ln> 6</span><span class=cl>
+</span></span><span class=line><span class=ln> 7</span><span class=cl>    <span class=k>if</span> <span class=n>n</span> <span class=ow>in</span> <span class=p>{</span><span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>}:</span>
+</span></span><span class=line><span class=ln> 8</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;NO SOLUTION&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln> 9</span><span class=cl>        <span class=n>exit</span><span class=p>()</span>
+</span></span><span class=line><span class=ln>10</span><span class=cl>
+</span></span><span class=line><span class=ln>11</span><span class=cl>    <span class=k>def</span> <span class=nf>b</span><span class=p>(</span><span class=n>v</span><span class=p>):</span>
+</span></span><span class=line><span class=ln>12</span><span class=cl>        <span class=k>while</span> <span class=n>v</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>13</span><span class=cl>            <span class=nb>print</span><span class=p>(</span><span class=n>v</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>14</span><span class=cl>            <span class=n>v</span> <span class=o>+=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>15</span><span class=cl>    <span class=n>b</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>16</span><span class=cl>    <span class=n>b</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>17</span><span class=cl>
+</span></span><span class=line><span class=ln>18</span><span class=cl><span class=n>a</span><span class=p>()</span>
+</span></span><span class=line><span class=ln>19</span><span class=cl>
+</span></span><span class=line><span class=ln>20</span><span class=cl><span class=c1># 4</span>
+</span></span><span class=line><span class=ln>21</span><span class=cl>
+</span></span><span class=line><span class=ln>22</span><span class=cl><span class=k>def</span> <span class=nf>a</span><span class=p>():</span>
+</span></span><span class=line><span class=ln>23</span><span class=cl><span class=n>n</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>())</span>
+</span></span><span class=line><span class=ln>24</span><span class=cl>
+</span></span><span class=line><span class=ln>25</span><span class=cl>    <span class=k>if</span> <span class=n>n</span> <span class=o>==</span> <span class=mi>2</span> <span class=ow>or</span> <span class=n>n</span> <span class=o>==</span> <span class=mi>3</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>26</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;NO SOLUTION&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>27</span><span class=cl>        <span class=n>exit</span><span class=p>()</span>
+</span></span><span class=line><span class=ln>28</span><span class=cl>
+</span></span><span class=line><span class=ln>29</span><span class=cl>    <span class=n>v</span> <span class=o>=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>30</span><span class=cl>    <span class=k>while</span> <span class=n>v</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>31</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=n>v</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>32</span><span class=cl>        <span class=n>v</span> <span class=o>+=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>33</span><span class=cl>
+</span></span><span class=line><span class=ln>34</span><span class=cl>    <span class=n>v</span> <span class=o>=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=ln>35</span><span class=cl>    <span class=k>while</span> <span class=n>v</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>36</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=n>v</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>37</span><span class=cl>        <span class=n>v</span> <span class=o>+=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>38</span><span class=cl>
+</span></span><span class=line><span class=ln>39</span><span class=cl><span class=n>a</span><span class=p>()</span>
+</span></span><span class=line><span class=ln>40</span><span class=cl>
+</span></span><span class=line><span class=ln>41</span><span class=cl><span class=c1># 5</span>
+</span></span><span class=line><span class=ln>42</span><span class=cl>
+</span></span><span class=line><span class=ln>43</span><span class=cl><span class=k>def</span> <span class=nf>a</span><span class=p>():</span>
+</span></span><span class=line><span class=ln>44</span><span class=cl><span class=n>n</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>())</span>
+</span></span><span class=line><span class=ln>45</span><span class=cl>
+</span></span><span class=line><span class=ln>46</span><span class=cl>    <span class=k>if</span> <span class=n>n</span> <span class=ow>in</span> <span class=p>{</span><span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>}:</span>
+</span></span><span class=line><span class=ln>47</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;NO SOLUTION&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>48</span><span class=cl>        <span class=n>exit</span><span class=p>()</span>
+</span></span><span class=line><span class=ln>49</span><span class=cl>
+</span></span><span class=line><span class=ln>50</span><span class=cl>    <span class=n>v</span> <span class=o>=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>51</span><span class=cl>    <span class=k>while</span> <span class=n>v</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>52</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=n>v</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>53</span><span class=cl>        <span class=n>v</span> <span class=o>+=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>54</span><span class=cl>
+</span></span><span class=line><span class=ln>55</span><span class=cl>    <span class=n>v</span> <span class=o>=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=ln>56</span><span class=cl>    <span class=k>while</span> <span class=n>v</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>57</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=n>v</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>58</span><span class=cl>        <span class=n>v</span> <span class=o>+=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>59</span><span class=cl>
+</span></span><span class=line><span class=ln>60</span><span class=cl><span class=n>a</span><span class=p>()</span></span></span></code></pre></div><h1 id=approach-6-and-their-friends>Approach #6 and their friends</h1><p>In this approach instead of <code>print</code>ing out the value each time we are storing it in an array and <code>print</code> it after all the loop ends.</p><p>This gave a very significant performance boost.</p><h2 id=observations-3>Observations</h2><p>This approach ran at <code>~0.34 s</code>. This is a major performance enhancement. Converting the duplicated <code>while</code> into a function made the runtime as <code>~0.36 s</code>, a little slow.</p><h2 id=code-3>Code</h2><p><a href=https://github.com/Maheshkumar-novice/CSES/blob/main/Permutations/6.py>Link #6</a>
+<a href=https://github.com/Maheshkumar-novice/CSES/blob/main/Permutations/6-with-function-little-slow.py>Link #6-1</a>
+<a href=https://github.com/Maheshkumar-novice/CSES/blob/main/Permutations/6-with-str-called-at-append.py>Link #6-2</a></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=ln> 1</span><span class=cl>
+</span></span><span class=line><span class=ln> 2</span><span class=cl><span class=c1># 6</span>
+</span></span><span class=line><span class=ln> 3</span><span class=cl>
+</span></span><span class=line><span class=ln> 4</span><span class=cl><span class=k>def</span> <span class=nf>a</span><span class=p>():</span>
+</span></span><span class=line><span class=ln> 5</span><span class=cl><span class=n>n</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>())</span>
+</span></span><span class=line><span class=ln> 6</span><span class=cl>
+</span></span><span class=line><span class=ln> 7</span><span class=cl>    <span class=k>if</span> <span class=n>n</span> <span class=o>==</span> <span class=mi>1</span><span class=p>:</span>
+</span></span><span class=line><span class=ln> 8</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;1&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln> 9</span><span class=cl>    <span class=k>if</span> <span class=n>n</span> <span class=ow>in</span> <span class=p>{</span><span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>}:</span>
+</span></span><span class=line><span class=ln>10</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;NO SOLUTION&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>11</span><span class=cl>    <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>12</span><span class=cl>        <span class=n>r</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=ln>13</span><span class=cl>        <span class=n>v</span> <span class=o>=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>14</span><span class=cl>        <span class=k>while</span> <span class=n>v</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>15</span><span class=cl>            <span class=n>r</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>v</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>16</span><span class=cl>            <span class=n>v</span> <span class=o>+=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>17</span><span class=cl>
+</span></span><span class=line><span class=ln>18</span><span class=cl>        <span class=n>v</span> <span class=o>=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=ln>19</span><span class=cl>        <span class=k>while</span> <span class=n>v</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>20</span><span class=cl>            <span class=n>r</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>v</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>21</span><span class=cl>            <span class=n>v</span> <span class=o>+=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>22</span><span class=cl>
+</span></span><span class=line><span class=ln>23</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39; &#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=nb>map</span><span class=p>(</span><span class=nb>str</span><span class=p>,</span> <span class=n>r</span><span class=p>)))</span>
+</span></span><span class=line><span class=ln>24</span><span class=cl>
+</span></span><span class=line><span class=ln>25</span><span class=cl><span class=n>a</span><span class=p>()</span>
+</span></span><span class=line><span class=ln>26</span><span class=cl>
+</span></span><span class=line><span class=ln>27</span><span class=cl><span class=c1># 6-with-str-called-at-append</span>
+</span></span><span class=line><span class=ln>28</span><span class=cl>
+</span></span><span class=line><span class=ln>29</span><span class=cl><span class=k>def</span> <span class=nf>a</span><span class=p>():</span>
+</span></span><span class=line><span class=ln>30</span><span class=cl><span class=n>n</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>())</span>
+</span></span><span class=line><span class=ln>31</span><span class=cl>
+</span></span><span class=line><span class=ln>32</span><span class=cl>    <span class=k>if</span> <span class=n>n</span> <span class=o>==</span> <span class=mi>1</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>33</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;1&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>34</span><span class=cl>    <span class=k>if</span> <span class=n>n</span> <span class=ow>in</span> <span class=p>{</span><span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>}:</span>
+</span></span><span class=line><span class=ln>35</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;NO SOLUTION&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>36</span><span class=cl>    <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>37</span><span class=cl>        <span class=n>r</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=ln>38</span><span class=cl>        <span class=n>v</span> <span class=o>=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>39</span><span class=cl>        <span class=k>while</span> <span class=n>v</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>40</span><span class=cl>            <span class=n>r</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>v</span><span class=p>))</span>
+</span></span><span class=line><span class=ln>41</span><span class=cl>            <span class=n>v</span> <span class=o>+=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>42</span><span class=cl>
+</span></span><span class=line><span class=ln>43</span><span class=cl>        <span class=n>v</span> <span class=o>=</span> <span class=mi>1</span>
+</span></span><span class=line><span class=ln>44</span><span class=cl>        <span class=k>while</span> <span class=n>v</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>45</span><span class=cl>            <span class=n>r</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=nb>str</span><span class=p>(</span><span class=n>v</span><span class=p>))</span>
+</span></span><span class=line><span class=ln>46</span><span class=cl>            <span class=n>v</span> <span class=o>+=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>47</span><span class=cl>
+</span></span><span class=line><span class=ln>48</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39; &#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>r</span><span class=p>))</span>
+</span></span><span class=line><span class=ln>49</span><span class=cl>
+</span></span><span class=line><span class=ln>50</span><span class=cl><span class=n>a</span><span class=p>()</span>
+</span></span><span class=line><span class=ln>51</span><span class=cl>
+</span></span><span class=line><span class=ln>52</span><span class=cl><span class=c1># 6-with-function-little-slow</span>
+</span></span><span class=line><span class=ln>53</span><span class=cl>
+</span></span><span class=line><span class=ln>54</span><span class=cl><span class=k>def</span> <span class=nf>a</span><span class=p>():</span>
+</span></span><span class=line><span class=ln>55</span><span class=cl><span class=n>n</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>())</span>
+</span></span><span class=line><span class=ln>56</span><span class=cl>
+</span></span><span class=line><span class=ln>57</span><span class=cl>    <span class=k>if</span> <span class=n>n</span> <span class=o>==</span> <span class=mi>1</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>58</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;1&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>59</span><span class=cl>    <span class=k>if</span> <span class=n>n</span> <span class=ow>in</span> <span class=p>{</span><span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>}:</span>
+</span></span><span class=line><span class=ln>60</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39;NO SOLUTION&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>61</span><span class=cl>    <span class=k>else</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>62</span><span class=cl>        <span class=n>r</span> <span class=o>=</span> <span class=p>[]</span>
+</span></span><span class=line><span class=ln>63</span><span class=cl>
+</span></span><span class=line><span class=ln>64</span><span class=cl>        <span class=k>def</span> <span class=nf>b</span><span class=p>(</span><span class=n>v</span><span class=p>):</span>
+</span></span><span class=line><span class=ln>65</span><span class=cl>            <span class=k>while</span> <span class=n>v</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>66</span><span class=cl>                <span class=n>r</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>v</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>67</span><span class=cl>                <span class=n>v</span> <span class=o>+=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>68</span><span class=cl>
+</span></span><span class=line><span class=ln>69</span><span class=cl>            <span class=k>while</span> <span class=n>v</span> <span class=o>&lt;=</span> <span class=n>n</span><span class=p>:</span>
+</span></span><span class=line><span class=ln>70</span><span class=cl>                <span class=n>r</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>v</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>71</span><span class=cl>                <span class=n>v</span> <span class=o>+=</span> <span class=mi>2</span>
+</span></span><span class=line><span class=ln>72</span><span class=cl>
+</span></span><span class=line><span class=ln>73</span><span class=cl>        <span class=n>b</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>74</span><span class=cl>        <span class=n>b</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span>
+</span></span><span class=line><span class=ln>75</span><span class=cl>        <span class=nb>print</span><span class=p>(</span><span class=s1>&#39; &#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=nb>map</span><span class=p>(</span><span class=nb>str</span><span class=p>,</span> <span class=n>r</span><span class=p>)))</span>
+</span></span><span class=line><span class=ln>76</span><span class=cl>
+</span></span><span class=line><span class=ln>77</span><span class=cl><span class=n>a</span><span class=p>()</span></span></span></code></pre></div><h1 id=conclusion>Conclusion</h1><p>In conclusion from this problem,</p><ul><li>I&rsquo;ve learned the main performance optimization with local variables</li><li>I&rsquo;ve experimented with possibilities for the <code>in</code> operation data structures</li><li>I&rsquo;ve found multiple calls to <code>print</code> also affects performance</li></ul></content><p><a class=blog-tags href=/GoWeblogs/tags/problem-solving/>#problem-solving</a>
+<a class=blog-tags href=/GoWeblogs/tags/python/>#python</a>
+<a class=blog-tags href=/GoWeblogs/tags/cses/>#cses</a></p></main><footer><small>Maheshkumar | Made with <a href=https://github.com/clente/hugo-bearcub>Bear Cub</a></small></footer></body></html>
