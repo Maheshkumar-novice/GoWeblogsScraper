@@ -5,7 +5,7 @@ import scrapy
 from scrapy.http import Request, Response
 from scrapy.loader import ItemLoader
 
-from goweblogsscrapper.items import BlogItem
+from goweblogsscraper.items import BlogItem
 
 
 class BlogsSpider(scrapy.Spider):

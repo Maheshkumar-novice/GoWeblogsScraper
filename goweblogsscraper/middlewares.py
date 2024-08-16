@@ -11,7 +11,7 @@ from scrapy.http import Request, Response
 # useful for handling different item types with a single interface
 
 
-class GoweblogsscrapperSpiderMiddleware:
+class GoweblogsscraperSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -61,7 +61,7 @@ class GoweblogsscrapperSpiderMiddleware:
         spider.logger.info(f"Spider opened: {spider.name}")
 
 
-class GoweblogsscrapperDownloaderMiddleware:
+class GoweblogsscraperDownloaderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.

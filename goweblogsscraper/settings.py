@@ -1,4 +1,4 @@
-# Scrapy settings for GoWeblogsScrapper project
+# Scrapy settings for goweblogsscraper project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "goweblogsscrapper"
+BOT_NAME = "goweblogsscraper"
 
-SPIDER_MODULES = ["goweblogsscrapper.spiders"]
-NEWSPIDER_MODULE = "goweblogsscrapper.spiders"
+SPIDER_MODULES = ["goweblogsscraper.spiders"]
+NEWSPIDER_MODULE = "goweblogsscraper.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = "GoWeblogsScrapper (+http://www.yourdomain.com)"
+# USER_AGENT = "goweblogsscraper (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -45,13 +45,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 # SPIDER_MIDDLEWARES = {
-#    "GoWeblogsScrapper.middlewares.GoweblogsscrapperSpiderMiddleware": 543,
+#    "goweblogsscraper.middlewares.goweblogsscraperSpiderMiddleware": 543,
 # }
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 # DOWNLOADER_MIDDLEWARES = {
-#    "GoWeblogsScrapper.middlewares.GoweblogsscrapperDownloaderMiddleware": 543,
+#    "goweblogsscraper.middlewares.goweblogsscraperDownloaderMiddleware": 543,
 # }
 
 # Enable or disable extensions
@@ -63,7 +63,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    "goweblogsscrapper.pipelines.BlogPipeline": 300,
+    "goweblogsscraper.pipelines.BlogPipeline": 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

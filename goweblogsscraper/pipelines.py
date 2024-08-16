@@ -11,7 +11,7 @@ import scrapy
 from itemadapter import ItemAdapter
 from scrapy.exceptions import DropItem
 
-from goweblogsscrapper.items import BlogItem
+from goweblogsscraper.items import BlogItem
 
 
 class BlogPipeline:

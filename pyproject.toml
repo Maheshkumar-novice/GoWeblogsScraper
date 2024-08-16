@@ -10,7 +10,7 @@ target-version = "py312"
 fix = true
 # The directory containing the source code. If you choose a different project layout
 # you will need to update this value.
-src = ["goweblogsscrapper"]
+src = ["goweblogsscraper"]
 
 [tool.ruff.lint]
 # Enable all linting rules.
@@ -36,5 +36,5 @@ ignore = [
 ]
 
 exclude = [
-    "goweblogsscrapper/settings.py",
+    "goweblogsscraper/settings.py",
 ]
