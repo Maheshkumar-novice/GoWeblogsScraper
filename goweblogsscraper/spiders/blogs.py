@@ -18,6 +18,10 @@ class BlogsSpider(scrapy.Spider):
         if blog_link:
             yield response.follow(blog_link.attrib["href"], self.parse_blog)
 
+        check_ins_link = response.xpath("//nav/a[(((count(preceding-sibling::*) + 1) = 3) and parent::*)]")
+        if check_ins_link:
+            yield response.follow(check_ins_link.attrib["href"], self.parse_blog)
+
     def parse_blog(self, response: Response) -> Generator[Request, None, None]:
         yield from response.follow_all(css=".blog-posts li a", callback=self.parse_blog_content)
 
