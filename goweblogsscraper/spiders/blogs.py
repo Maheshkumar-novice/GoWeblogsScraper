@@ -21,7 +21,7 @@ class BlogsSpider(scrapy.Spider):
     def parse_blog(self, response: Response) -> Generator[Request, None, None]:
         yield from response.follow_all(css=".blog-posts li a", callback=self.parse_blog_content)
 
-    def parse_blog_content(self, response: Response) -> Generator[dict, None, None]:
+    def parse_blog_content(self, response: Response) -> Generator[BlogItem, None, None]:
         item_loader = ItemLoader(item=BlogItem(), response=response)
         item_loader.add_css("title", "#main-content :nth_child(1)::text")
         item_loader.add_value("content", response.body)
