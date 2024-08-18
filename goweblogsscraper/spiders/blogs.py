@@ -12,6 +12,11 @@ class BlogsSpider(scrapy.Spider):
     name = "blogs"
     allowed_domains: typing.ClassVar = ["maheshkumar-novice.github.io"]
     start_urls: typing.ClassVar = ["https://maheshkumar-novice.github.io/GoWeblogs"]
+    custom_settings: typing.ClassVar = {
+        "ITEM_PIPELINES": {
+            "goweblogsscraper.pipelines.BlogPipeline": 300,
+        }
+    }
 
     def parse(self, response: Response) -> Generator[Request, None, None]:
         blog_link = response.xpath("//nav/a[(((count(preceding-sibling::*) + 1) = 2) and parent::*)]")

@@ -11,3 +11,12 @@ class BlogItem(scrapy.Item):
     title = scrapy.Field(output_processor=TakeFirst())
     content = scrapy.Field(output_processor=TakeFirst())
     file_path = scrapy.Field()
+
+
+class GitHubPinnedLinkItem(scrapy.Item):
+    link = scrapy.Field()
+
+
+class GitHubRepoItem(scrapy.Item):
+    link = scrapy.Field()
+    tags = scrapy.Field()
